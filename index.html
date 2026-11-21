@@ -3,128 +3,96 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ClassWeb · 班级主页</title>
+<meta name="robots" content="noindex, nofollow">
+<title>班级网站访问验证</title>
 <style>
   *{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif}
-  :root{
-    --blue:#2563eb; --blue-soft:#e8f0ff; --ink:#18212f; --muted:#69737f;
-    --line:#e6eaf0; --bg:#f6f8fb; --card:#ffffff; --green:#12a150;
-  }
-  body{background:var(--bg);color:var(--ink);line-height:1.6}
-  .wrap{max-width:760px;margin:0 auto;padding:0 18px 56px}
-
-  header{
+  body{
+    min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;
     background:linear-gradient(135deg,#1d4ed8 0%,#2563eb 45%,#3b82f6 100%);
-    color:#fff;padding:44px 22px 38px;text-align:center;
-    border-radius:0 0 26px 26px;margin-bottom:-26px;
-    box-shadow:0 12px 30px rgba(37,99,235,.22);
   }
-  header h1{font-size:1.9rem;letter-spacing:1px;margin-bottom:8px}
-  header p{font-size:.92rem;opacity:.92}
-  header .pill{
-    display:inline-block;margin-top:14px;font-size:.78rem;
-    background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);
-    padding:5px 12px;border-radius:999px;
-  }
-
-  .card{
-    background:var(--card);border:1px solid var(--line);border-radius:16px;
-    padding:20px 20px 22px;margin-top:16px;
-    box-shadow:0 4px 16px rgba(24,33,47,.05);
-  }
-  .card h2{
-    font-size:1rem;color:var(--blue);margin-bottom:14px;
-    display:flex;align-items:center;gap:8px;
-  }
-  .card h2::before{
-    content:"";width:4px;height:15px;border-radius:2px;background:var(--blue);display:inline-block;
-  }
-
-  .kv{display:grid;grid-template-columns:88px 1fr;row-gap:12px;font-size:.92rem}
-  .kv .k{color:var(--muted)}
-  .kv .v{color:var(--ink);font-weight:600;word-break:break-all}
-
-  .notice li{
-    list-style:none;padding:12px 0;border-bottom:1px dashed var(--line);
-    display:flex;gap:10px;align-items:flex-start;font-size:.9rem;
-  }
-  .notice li:last-child{border-bottom:none;padding-bottom:0}
-  .notice .dot{
-    flex:none;width:7px;height:7px;border-radius:50%;background:var(--blue);margin-top:9px;
-  }
-  .notice .date{color:var(--muted);font-size:.78rem;margin-left:auto;flex:none;padding-left:10px}
-
-  .about{font-size:.9rem;color:#4b5563}
-  .about p{margin-bottom:10px}
-  .contact{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
-  .contact a{
-    text-decoration:none;font-size:.85rem;color:var(--blue);
-    background:var(--blue-soft);border:1px solid #d6e4ff;border-radius:10px;
-    padding:8px 14px;transition:.2s;
-  }
-  .contact a:hover{background:#dbe8ff}
-
-  footer{text-align:center;color:#98a2b3;font-size:.76rem;margin-top:26px;line-height:1.8}
-  .status{
-    display:inline-flex;align-items:center;gap:6px;font-size:.78rem;color:var(--green);
-    background:#eafaf1;border:1px solid #c9efdb;border-radius:999px;padding:5px 11px;margin-top:6px;
-  }
-  .status i{width:6px;height:6px;border-radius:50%;background:var(--green);display:inline-block}
-
-  @media (max-width:420px){
-    header h1{font-size:1.6rem}
-    .kv{grid-template-columns:76px 1fr;font-size:.88rem}
-  }
+  .box{background:#fff;width:100%;max-width:380px;border-radius:18px;padding:34px 26px 28px;
+    box-shadow:0 18px 46px rgba(15,23,42,.28)}
+  .ico{width:46px;height:46px;border-radius:12px;background:#e8f0ff;color:#2563eb;
+    display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:22px}
+  h1{font-size:1.22rem;color:#18212f;text-align:center;letter-spacing:.5px}
+  .sub{font-size:.84rem;color:#69737f;text-align:center;margin-top:8px;line-height:1.6}
+  label{display:block;font-size:.8rem;color:#69737f;margin:22px 0 7px}
+  input[type=password]{width:100%;padding:12px 14px;font-size:16px;color:#18212f;
+    border:1px solid #dbe3ee;border-radius:10px;background:#f8fafd;outline:none;transition:.2s}
+  input[type=password]:focus{border-color:#2563eb;background:#fff;box-shadow:0 0 0 3px #e8f0ff}
+  button{width:100%;margin-top:18px;padding:13px;font-size:15px;font-weight:600;letter-spacing:1px;
+    color:#fff;border:none;border-radius:10px;cursor:pointer;
+    background:linear-gradient(135deg,#2563eb,#3b82f6);box-shadow:0 8px 20px rgba(37,99,235,.28);
+    transition:.2s}
+  button:hover{filter:brightness(1.05)}
+  button:disabled{opacity:.65;cursor:not-allowed;box-shadow:none}
+  .row{display:flex;align-items:center;gap:7px;margin-top:14px;font-size:.8rem;color:#69737f}
+  .row input{width:15px;height:15px;accent-color:#2563eb}
+  .tip{margin-top:12px;min-height:18px;text-align:center;font-size:.8rem;color:#e5484d}
+  .foot{margin-top:20px;text-align:center;font-size:.72rem;color:#98a2b3;line-height:1.7}
 </style>
 </head>
 <body>
-
-<header>
-  <h1>ClassWeb</h1>
-  <p>班级主页 · 通知与信息汇总</p>
-  <span class="pill">classweb.de5.net</span>
-</header>
-
-<div class="wrap">
-
-  <section class="card">
-    <h2>班级信息</h2>
-    <div class="kv">
-      <div class="k">班级</div><div class="v">高二（3）班</div>
-      <div class="k">班主任</div><div class="v">王老师</div>
-      <div class="k">人数</div><div class="v">46 人</div>
-      <div class="k">教室</div><div class="v">教学楼 B 栋 302</div>
-    </div>
-  </section>
-
-  <section class="card">
-    <h2>班级通知</h2>
-    <ul class="notice">
-      <li><span class="dot"></span><span>本周五下午第三节课后召开班会，地点本班教室，请勿缺席。</span><span class="date">11-14</span></li>
-      <li><span class="dot"></span><span>月考成绩已下发，请各位同学周五前完成错题整理并交组长。</span><span class="date">11-12</span></li>
-      <li><span class="dot"></span><span>校运动会报名表本周三截止，项目与人数见班级群文件。</span><span class="date">11-10</span></li>
-    </ul>
-  </section>
-
-  <section class="card">
-    <h2>关于本站</h2>
-    <div class="about">
-      <p>这是班级自建的静态主页，用来集中发布通知、集合信息与常用链接。纯静态页面，不含任何后台与表单提交，访问速度快、维护简单。</p>
-      <p>页面内容修改后自动发布，无需额外配置证书，HTTPS 由托管平台自动签发。</p>
-      <div class="contact">
-        <a href="#" onclick="return false">班级群</a>
-        <a href="#" onclick="return false">学习资料</a>
-        <a href="#" onclick="return false">联系管理员</a>
-      </div>
-      <span class="status"><i></i>站点运行正常</span>
-    </div>
-  </section>
-
-  <footer>
-    ClassWeb · classweb.de5.net<br>
-    静态托管 · 免备案 · HTTPS 自动
-  </footer>
-
-</div>
+<form class="box" id="box" autocomplete="off">
+  <div class="ico">🔒</div>
+  <h1>班级网站访问验证</h1>
+  <p class="sub">本站内容已加密，请输入班级访问密码后查看</p>
+  <label for="pw">访问密码</label>
+  <input type="password" id="pw" placeholder="请输入密码" required>
+  <label class="row"><input type="checkbox" id="rm"> 记住密码（本设备）</label>
+  <button type="submit" id="btn">进入班级主页</button>
+  <p class="tip" id="tip"></p>
+  <p class="foot">ClassWeb · 受保护页面<br>仅限本班成员访问</p>
+</form>
+<script>
+const D = {"it":200000,"s":"6EP2Z0TId2toT7hQmc3Ddw==","i":"+IF8rWyr/3MA4GKU","d":"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"};
+const $ = id => document.getElementById(id);
+function b64d(s){
+  const bin = atob(s), len = bin.length, u8 = new Uint8Array(len);
+  for (let i = 0; i < len; i++) u8[i] = bin.charCodeAt(i);
+  return u8;
+}
+async function deriveKey(pwd){
+  const raw = new TextEncoder().encode(pwd);
+  const base = await crypto.subtle.importKey('raw', raw, {name:'PBKDF2'}, false, ['deriveKey']);
+  return crypto.subtle.deriveKey(
+    {name:'PBKDF2', salt:b64d(D.s), iterations:D.it, hash:'SHA-256'},
+    base, {name:'AES-GCM', length:256}, false, ['decrypt']
+  );
+}
+async function unlock(pwd){
+  const key = await deriveKey(pwd);
+  const plain = await crypto.subtle.decrypt({name:'AES-GCM', iv:b64d(D.i)}, key, b64d(D.d));
+  return new TextDecoder().decode(plain);
+}
+async function open(pwd, remember){
+  if (remember) localStorage.setItem('cw_pw', pwd); else localStorage.removeItem('cw_pw');
+  const html = await unlock(pwd);
+  document.open();
+  document.write(html);
+  document.close();
+}
+$('box').addEventListener('submit', async e => {
+  e.preventDefault();
+  const pwd = $('pw').value;
+  if (!pwd) return;
+  const btn = $('btn');
+  btn.disabled = true; btn.textContent = '验证中…'; $('tip').textContent = '';
+  try {
+    await open(pwd, $('rm').checked);
+  } catch (err) {
+    btn.disabled = false; btn.textContent = '进入班级主页';
+    $('tip').textContent = '密码错误，请重新输入';
+    $('pw').select();
+  }
+});
+(async () => {
+  const saved = localStorage.getItem('cw_pw');
+  if (saved) {
+    try { await open(saved, true); } catch (e) { localStorage.removeItem('cw_pw'); }
+  }
+})();
+</script>
 </body>
 </html>
